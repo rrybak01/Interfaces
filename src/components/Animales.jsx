@@ -13,7 +13,7 @@ class Animales extends React.Component {
     };
   }
 
-  cambiaTarjeta(pulsado) {
+  pulsar(pulsado) {
     for (let i = 0; i < DatosTablaAnimales.length; i++) {
       if (pulsado == DatosTablaAnimales[i].Nombre) {
         this.setState({ animal: i });
@@ -21,10 +21,11 @@ class Animales extends React.Component {
       }
     }
   }
+
   render() {
     return (
       <div className="main-site">
-        <h1>Animales</h1>
+        <h1>Animales en Peligro de Extinción</h1>
         <Container>
           <Row>
             <Col lg={8} md={6}>
@@ -40,7 +41,7 @@ class Animales extends React.Component {
                 <tbody>
                   {DatosTablaAnimales.map((item) => {
                     return (
-                      <tr onClick={() => this.cambiaTarjeta(item.Nombre)}>
+                      <tr onClick={() => this.pulsar(item.Nombre)}>
                         <td>{item.Nombre}</td>
                         <td>{item.Cabezas}</td>
                         <td>{item.Prevision2025}</td>
@@ -73,4 +74,5 @@ class Animales extends React.Component {
     );
   }
 }
+
 export default Animales;
